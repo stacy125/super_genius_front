@@ -1,4 +1,4 @@
-Name
-Genre
-Birthplace?
-Age?
+//topartist
+name
+playcount
+listeners

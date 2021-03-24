@@ -1,5 +1,4 @@
-genre
-song name
-length
-album 
+//topsongs
+name
+playcount
 artist
