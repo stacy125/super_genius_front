@@ -1,25 +1,64 @@
-import logo from './logo.svg';
 import './App.css';
+import { Component } from 'react';
+import Artist from './Artist.js';
+import Song from './Song.js';
+import Navigation from './Navigation.js';
+import AllSongs from './AllSongs.js'
+import AllArtist from './AllArtist.js'
+import Form from './Form'
+import { Switch, Route, NavLink } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+class App extends Component() {
+  constructor(props) {
+    super(props)
+    this.state = {
+      songs: [],
+      artists: [],
+      Loading: true
+    };
+  }
+
+
+  componentDidMount() {
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        this.setState({
+          song: data,
+          artist: data,
+          Loading: false
+        });
+      });
+  }
+  editSong = (songToEdit) => {
+    console.log('edit song', songToEdit)
+
+    this.setState({ oneSong: songToEdit })
+  }
+  editArtist = (artistToEdit) => {
+    console.log('edit artist', artistToEdit)
+
+    this.setState({ oneArtist: artistToEdit })
+  }
+
+  return() {
+    return (
+    <div className="App" >
+        <Switch>
+          <Route exact path="/home">
+            <Homepage songs={this.state.songs} />
+          </Route>
+          <Route exact path='/alldogs'>
+            <AllDogs songs={this.state.songs} editSong={(song) => song !== undefined ? this.editSong(song) : null} />
+          </Route>
+          <Route exact path='/edit'>
+            <Form songToEdit={this.state.oneSong} />
+          </Route>
+        </Switch>
     </div>
   );
+  }
 }
 
 export default App;
