@@ -31,18 +31,3 @@ class Artist extends Component {
 
 export default Artist;
 
-
-
-
-
-
-
-
-
-
-
-
-//topartist
-name
-playcount
-listeners
