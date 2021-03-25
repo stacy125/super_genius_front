@@ -6,10 +6,11 @@ export default function AllArtists(props) {
     console.log(props);
     const renderSomeartistss = props.artists.map((artist) => (
         <div className="render">
+            <h3>Details</h3>
             <div>{artist.id} </div>
-            <div>{artist.name}</div>
-            <p>{artist.playcount}</p>
-            <p>{artist.url}</p>
+            <div>Artist: {artist.name}</div>
+            <p>Plays: {artist.playcount}</p>
+            <p>Url: {artist.url}</p>
             <div>
                 <button onClick={() => props.editArtist(artist)}>
                     <Link to='/edit'>
