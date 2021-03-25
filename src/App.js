@@ -21,7 +21,18 @@ class App extends Component() {
 
 
   componentDidMount() {
-    fetch(url)
+    fetch('https://super-genius-back.herokuapp.com/songs')
+      .then((response) => response.json())
+      .then((data) => {
+        this.setState({
+          song: data,
+          artist: data,
+          Loading: false
+        });
+      });
+  }
+  componentDidMount() {
+    fetch('https://super-genius-back.herokuapp.com/artist')
       .then((response) => response.json())
       .then((data) => {
         this.setState({
@@ -61,7 +72,7 @@ class App extends Component() {
             <Homepage artist={this.state.artist} />
           </Route>
           <Route exact path='/allartist'>
-            <AllSongs artist={this.state.artist} editArtist={(artist) => artist !== undefined ? this.editArtist(artist) : null} />
+            <AllArtist artist={this.state.artist} editArtist={(artist) => artist !== undefined ? this.editArtist(artist) : null} />
           </Route>
           <Route exact path='/edit'>
             <Form artistToEdit={this.state.oneArtist} />
