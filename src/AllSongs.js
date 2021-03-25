@@ -3,14 +3,15 @@ import Form from './Form'
 import { Link } from 'react-router-dom'
 
 export default function Allsongs(props) {
-    const renderSomesongss = [...props.song].map((song) => (
+    console.log(props);
+    const renderSomesongss = [...props.songs].map((song) => (
         <div className="render">
-            <div>{song.name}</div>
+            <div>{song.artist.name}</div>
+            <p>{song.name}</p>
             <p>{song.playcount}</p>
-            <p>{song.artist}</p>
             <div>
-                <button onClick={() => props.editsongs(songs)}>
-                    <Link to='/edit'>
+            <button onClick={() => props.editSong(song)}>
+              <Link to='/edit'>
                         EDIT
             </Link>
                 </button>

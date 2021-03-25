@@ -2,16 +2,15 @@ import React, { Component } from 'react';
 import Artist from './Artist.js'
 import Song from './Song.js'
 
-export default class Home extends Component {
+export default class Homepage extends Component {
     constructor(props) {
         super(props)
         this.state = {
             value: '',
             oneSong: '',
-            oneArtist
+            oneArtist: ""
         }
     }
-
     getSong = (e, songName) => {
         const songInput = songName
         const song = this.props.songs.filter(song => {
@@ -26,15 +25,16 @@ export default class Home extends Component {
         })
         this.setState({ oneArtist: artist })
     }
-
+    
     handleSong = (e) => {
         this.setState({ value: e.target.value })
     }
     handleArtist = (e) => {
         this.setState({ value: e.target.value })
     }
-
+    
     render() {
+        console.log("hello");
         return (
             <div>
                 <header className="header">WELCOME WE HOPE YOU ENJOY THIS SONG AND ARTIST API!!!</header>

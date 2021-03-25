@@ -1,15 +1,17 @@
 import './App.css';
 import { Component } from 'react';
-import Artist from './Artist.js';
-import Song from './Song.js';
+// import Artist from './Artist.js';
+// import Song from './Song.js';
 import Navigation from './Navigation.js';
 import AllSongs from './AllSongs.js'
 import AllArtist from './AllArtist.js'
+import Homepage from './Homepage.js'
 import Form from './Form'
-import { Switch, Route, NavLink } from 'react-router-dom';
+import { Switch, Route} from 'react-router-dom';
 
 
-class App extends Component() {
+
+class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -24,26 +26,26 @@ class App extends Component() {
     fetch('https://super-genius-back.herokuapp.com/songs')
       .then((response) => response.json())
       .then((data) => {
+        console.log(data);
         this.setState({
-          song: data,
-          artist: data,
+          songs: data,
           Loading: false
         });
       });
-  }
-  componentDidMount() {
+ 
     fetch('https://super-genius-back.herokuapp.com/artist')
       .then((response) => response.json())
       .then((data) => {
+        console.log(data);
+
         this.setState({
-          song: data,
-          artist: data,
+          artists: data,
           Loading: false
         });
       });
   }
   editSong = (songToEdit) => {
-    console.log('edit song', songToEdit)
+    console.log('edit song!', songToEdit)
 
     this.setState({ oneSong: songToEdit })
   }
@@ -53,29 +55,27 @@ class App extends Component() {
     this.setState({ oneArtist: artistToEdit })
   }
 
-  return() {
+  render() {
+
     return (
     <div className="App" >
+      <h1>Hello World</h1>
+      <Navigation />
         <Switch>
           <Route exact path="/home">
-            <Homepage songs={this.state.songs} />
+            <Homepage songs={this.state.songs}  />
           </Route>
           <Route exact path='/allsongs'>
             <AllSongs songs={this.state.songs} editSong={(song) => song !== undefined ? this.editSong(song) : null} />
           </Route>
           <Route exact path='/edit'>
-            <Form songToEdit={this.state.oneSong} />
+            <Form songToEdit={this.state.oneSong} artistToEdit={this.state.oneArtist}/>
           </Route>
-        </Switch>
-        <Switch>
           <Route exact path="/home">
-            <Homepage artist={this.state.artist} />
+            <Homepage artists={this.state.artists} />
           </Route>
-          <Route exact path='/allartist'>
-            <AllArtist artist={this.state.artist} editArtist={(artist) => artist !== undefined ? this.editArtist(artist) : null} />
-          </Route>
-          <Route exact path='/edit'>
-            <Form artistToEdit={this.state.oneArtist} />
+          <Route exact path='/allartists'>
+            <AllArtist artists={this.state.artists} editArtist={(artist) => artist !== undefined ? this.editArtist(artist) : null} />
           </Route>
         </Switch>
     </div>

@@ -13,7 +13,7 @@ const Navigation = () => {
                     <Link className="allsongs" to='/allsongs'>All songs</Link>
                 </div>
                 <div>
-                    <Link className="allartist" to='/allartist'>All artist</Link>
+                    <Link className="allartists" to='/allartists'>All artists</Link>
                 </div>
             </ul>
         </div>
