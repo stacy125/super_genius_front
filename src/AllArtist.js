@@ -5,9 +5,10 @@ import { Link } from 'react-router-dom'
 export default function AllArtists(props) {
     const renderSomeartistss = [...props.artist].map((artist) => (
         <div className="render">
+            <div>{artist.id} </div>
             <div>{artist.name}</div>
             <p>{artist.playcount}</p>
-            <p>{artist.listener}</p>
+            <p>{artist.url}</p>
             <div>
                 <button onClick={() => props.editartists(artists)}>
                     <Link to='/edit'>

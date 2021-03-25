@@ -21,7 +21,7 @@ class Artist extends Component {
                     <p>Life Span {this.props.artist[0].playcount}</p>
                     <div>
                         Temperament
-						<p>{this.props.artist[0].listener}</p>
+						<p>{this.props.artist[0].url}</p>
                     </div>
                 </div>
             </div>
