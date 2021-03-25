@@ -49,11 +49,22 @@ class App extends Component() {
           <Route exact path="/home">
             <Homepage songs={this.state.songs} />
           </Route>
-          <Route exact path='/alldogs'>
-            <AllDogs songs={this.state.songs} editSong={(song) => song !== undefined ? this.editSong(song) : null} />
+          <Route exact path='/allsongs'>
+            <AllSongs songs={this.state.songs} editSong={(song) => song !== undefined ? this.editSong(song) : null} />
           </Route>
           <Route exact path='/edit'>
             <Form songToEdit={this.state.oneSong} />
+          </Route>
+        </Switch>
+        <Switch>
+          <Route exact path="/home">
+            <Homepage artist={this.state.artist} />
+          </Route>
+          <Route exact path='/allartist'>
+            <AllSongs artist={this.state.artist} editArtist={(artist) => artist !== undefined ? this.editArtist(artist) : null} />
+          </Route>
+          <Route exact path='/edit'>
+            <Form artistToEdit={this.state.oneArtist} />
           </Route>
         </Switch>
     </div>
