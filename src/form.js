@@ -34,7 +34,11 @@ export default class Form extends Component {
                         <input className="input3" name="artist" placeholder={this.props.songToEdit.name} />
                     </div>
                     <div className="button">
-                        <button className="update-dog">Update Song</button>
+                        <button className="update-button">Update Song</button>
+                    </div>
+                    <div>
+                        <label for="id">ID:</label>
+                        <input className="input" name="id" placeholder={this.props.artistToEdit.id} />
                     </div>
                     <div>
                         <label for="name">Name:</label>
@@ -45,12 +49,12 @@ export default class Form extends Component {
                         <input className="input2" name="Playcount" placeholder={this.props.artistToEdit.name} />
                     </div>
                     <div>
-                        <label for="listener">Listener:</label>
+                        <label for="listener">URL:</label>
                         <input className="input3" name="listener" placeholder={this.props.artistToEdit.name} />
                     </div>
 
                     <div className="button">
-                        <button className="update-dog">Update Artist</button>
+                        <button className="update-button">Update Artist</button>
                     </div>
                 </div>
             </form>
