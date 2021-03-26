@@ -6,9 +6,10 @@ export default function Allsongs(props) {
     console.log(props);
     const renderSomesongs = [...props.songs].map((song) => (
         <div className="render">
-            <div>{song.artist.name}</div>
-            <p>{song.name}</p>
-            <p>{song.playcount}</p>
+            <h3>Details</h3>
+            <div>Artist: {song.artist.name}</div>
+            <p>Song: {song.name}</p>
+            <p>Plays: {song.playcount}</p>
             <div>
             <button className="edit" onClick={() => props.editSong(song)}>
               <Link to='/edit'>
