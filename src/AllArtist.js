@@ -6,9 +6,6 @@ export default function AllArtists(props) {
     // console.log(props);
     const renderSomeartistss = props.artists.map((artist) => (
         <div className="render">
-            <div>{artist.name}</div>
-            <p>{artist.playcount}</p>
-            <p>{artist.url}</p>
             <h3>Details</h3>
             <div>{artist.id} </div>
             <div>Artist: {artist.name}</div>
