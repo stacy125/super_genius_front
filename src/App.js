@@ -14,6 +14,7 @@ import { Switch, Route} from 'react-router-dom';
 class App extends Component {
   constructor(props) {
     super(props)
+    this.updateSong = this.updateSong.bind(this)
     this.state = {
       songs: [],
       artists: [],
@@ -26,7 +27,7 @@ class App extends Component {
     fetch('https://super-genius-back.herokuapp.com/songs')
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         this.setState({
           songs: data,
           Loading: false
@@ -36,21 +37,42 @@ class App extends Component {
     fetch('https://super-genius-back.herokuapp.com/artist')
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
 
         this.setState({
           artists: data,
           Loading: false
         });
       });
-  }
+    }
+    updateSong = (e) => {
+      e.preventDefault()
+      const { name, url, _id } = this.state.songToEdit
+      const updatedSong = { name, url }
+      console.log(updatedSong, _id)
+      const requestOptions = {
+        method: "PUT",
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(updatedSong)
+      }
+      fetch('https://super-genius-back.herokuapp.com/songs' + _id, requestOptions)
+        .then(resp => resp.json())
+        .then(returnedUpdatedSong => {
+          console.log(returnedUpdatedSong)
+          const allUpdatedSong = this.state.songs.map(song => song._id === _id ? returnedUpdatedSong : song)
+          this.setState({ songs: allUpdatedSong })
+        })
+      console.log("hello");
+    }
   editSong = (songToEdit) => {
-    console.log('edit song!', songToEdit)
+    // console.log('edit song!', songToEdit)
 
     this.setState({ oneSong: songToEdit })
   }
   editArtist = (artistToEdit) => {
-    console.log('edit artist', artistToEdit)
+    // console.log('edit artist', artistToEdit)
 
     this.setState({ oneArtist: artistToEdit })
   }

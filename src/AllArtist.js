@@ -1,14 +1,19 @@
 import React from 'react';
-import Form from './Form'
+// import Form from './Form'
 import { Link } from 'react-router-dom'
 
 export default function AllArtists(props) {
-    console.log(props);
+    // console.log(props);
     const renderSomeartistss = props.artists.map((artist) => (
         <div className="render">
             <div>{artist.name}</div>
             <p>{artist.playcount}</p>
             <p>{artist.url}</p>
+            <h3>Details</h3>
+            <div>{artist.id} </div>
+            <div>Artist: {artist.name}</div>
+            <p>Plays: {artist.playcount}</p>
+            <p>Url: {artist.url}</p>
             <div>
                 <button className="edit" onClick={() => props.editArtist(artist)}>
                     <Link to='/edit'>
