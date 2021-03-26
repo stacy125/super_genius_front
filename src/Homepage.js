@@ -36,9 +36,9 @@ export default class Homepage extends Component {
     render() {
         console.log("hello");
         return (
-            <div>
+            <div className="home">
                 <header className="header">WELCOME WE HOPE YOU ENJOY THIS SONG AND ARTIST API!!!</header>
-
+                <div className="click">
                 <button className="submit" onClick={(e) => this.getSong(e, this.state.value)}>
                     Click to get your song
 				</button>
@@ -52,6 +52,8 @@ export default class Homepage extends Component {
                     />
                 </div>
                 {this.state.oneSong.length !== 0 ? <Song song={this.state.oneSong} /> : null}
+                </div>
+                <div className="click">
                 <button className="submit" onClick={(e) => this.getArtist(e, this.state.value)}>
                     Click to get your artist
 				</button>
@@ -65,6 +67,7 @@ export default class Homepage extends Component {
                     />
                 </div>
                 {this.state.oneArtist.length !== 0 ? <Artist artist={this.state.oneArtist} /> : null}
+            </div>
             </div>
         );
     }

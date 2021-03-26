@@ -18,9 +18,9 @@ class song extends Component {
                 <div>
                     <header>SEARCH FOR YOUR FAVORITE SONG</header>
                     <h1>{this.props.song[0].name}</h1>
-                    <p>Life Span {this.props.song[0].playcount}</p>
+                    <p>Song {this.props.song[0].playcount}</p>
                     <div>
-                        Temperament
+                        Artist
 						<p>{this.props.song[0].artist}</p>
                     </div>
                 </div>

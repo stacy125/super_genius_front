@@ -59,7 +59,7 @@ class App extends Component {
 
     return (
     <div className="App" >
-      <h1>Hello World</h1>
+      <div className="app-box">
       <Navigation />
         <Switch>
           <Route exact path="/home">
@@ -78,6 +78,7 @@ class App extends Component {
             <AllArtist artists={this.state.artists} editArtist={(artist) => artist !== undefined ? this.editArtist(artist) : null} />
           </Route>
         </Switch>
+        </div>
     </div>
   );
   }
