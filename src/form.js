@@ -31,7 +31,7 @@ export default class Form extends Component {
         // }
     }
 
-    doSomething = (e) {
+    doSomething = (e) => {
         e.preventDefault()
         console.log("Hello");
     }
