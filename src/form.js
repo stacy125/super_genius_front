@@ -31,10 +31,15 @@ export default class Form extends Component {
         // }
     }
 
+    doSomething = (e) => {
+        e.preventDefault()
+        console.log("Hello");
+    }
+    
+
 
     render() {
-        console.log('edit artist song inside form', this.props);
-        console.log(this.state.form);
+        
         return (
             <form >
                 {
@@ -62,7 +67,7 @@ export default class Form extends Component {
                                     <input className="input3" name="artist" placeholder={this.props.songToEdit.artist.name} />
                                 </div>
                                 <div className="button">
-                                    <button className="update-button">Update Song</button>
+                                    <button className="update-button" onClick={(e)=> {e.preventDefault(); console.log("hello")}}>Update Song</button>
                                 </div>
                             </div>
                         </div>
