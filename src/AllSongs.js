@@ -20,6 +20,7 @@ class App extends Component {
             .then(res => res.json())
             .then(songs => {
                 this.setState({ songs })
+                console.log(songs)
             })
     }
     createNewSong = (e) => {
@@ -82,8 +83,9 @@ class App extends Component {
                 this.setState({ songs: allUpdatedSongs })
             })
     }
+    
     render() {
-        const { name, playcount, _id } = this.state.currentSelected
+        const { name, playcount, artist, _id } = this.state.currentSelected
         return (
             <div className="App">
 
@@ -102,7 +104,7 @@ class App extends Component {
                 <div>
                     <h1>Song Info</h1>
                     {this.state.currentSelected._id && <div>
-                        <h2>Name: {name}</h2>
+                        <h2>Song Name: {name}</h2>
                         <h2>Playcount: {playcount}</h2>
                         <button onClick={() => this.deleteSong(_id)}>DELETE</button>
                         <button onClick={() => this.getEditSong(this.state.currentSelected)}>EDIT</button>
@@ -115,7 +117,7 @@ class App extends Component {
                     {this.state.SongToEdit._id &&
                         <form onSubmit={this.updateSong}>
                             <input type="text" name="name" placeholder="enter name" value={this.state.SongToEdit.name} onChange={this.handleEditChange} />
-                            <input type="text" name="url" placeholder="enter url" value={this.state.SongToEdit.url} onChange={this.handleEditChange} />
+                            <input type="text" name="url" placeholder="enter playcount" value={this.state.SongToEdit.playcount} onChange={this.handleEditChange} />
                             <button type="submit">Edit</button>
                         </form>}
                 </div>
