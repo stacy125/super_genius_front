@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom'
 import './App.css';
 import React, { Component } from "react"
@@ -108,7 +107,7 @@ class App extends Component {
                         <h2>Playcount: {playcount}</h2>
                         <button onClick={() => this.deleteArtist(_id)}>DELETE</button>
                         <button onClick={() => this.getEditArtist(this.state.currentSelected)}>EDIT</button>
-
+                        
                     </div>}
                 </div>
 
@@ -137,3 +136,20 @@ class App extends Component {
     }
 }
 export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

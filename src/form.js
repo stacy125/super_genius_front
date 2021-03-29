@@ -6,19 +6,8 @@ export default class Form extends Component {
         this.state = {
             form: "song"
         };
-
     }
-
-    // This is where you will create a function where you will make a fetch call to your edit route from your api.
-    //  You will save all the user input  in the state and then you will then send that user input data living in state to your API
-    //
-    // submitNewDog = (e) => {
-    //     e.preventDefault()
-    //     this.props.updateDog(this.props)
-    // write fetch call using props.songToEdit and artistToEdit url end in api url for update
-    // }
     componentDidMount() {
-        // if (this.props !== undefined) {
         if (this.props.songToEdit !== undefined) {
             this.setState({
                 form: "song"
@@ -28,24 +17,14 @@ export default class Form extends Component {
                 form: "artist"
             })
         }
-        // }
+
     }
-
-    doSomething = (e) => {
-        e.preventDefault()
-        console.log("Hello");
-    }
-
-
-
     render() {
-
         return (
             <form >
                 {
                     this.state.form === "song" && this.props.songToEdit !== undefined
                         ?
-
                         <div className="form-container">
                             <div className="form">
                                 <div>
